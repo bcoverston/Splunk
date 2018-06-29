@@ -2,8 +2,9 @@ __author__ = 'eMaM'
 
 DEVELOPMENT_CONF = {
     'splunk': {
-        'username': 'jega',
-        'password': 'C@ssandra94010',
+        'username': '5555',
+        'password': 'Qazxsw@1',
+        'host':'prd-p-5p7k7lg9772d.cloud.splunk.com',
         'port': 8089,
         'scheme': 'https',
         'fields': ['_time', 'd_time', 'clientip', 'file', 'status', 'uri', 'user'],

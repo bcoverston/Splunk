@@ -1,22 +1,27 @@
+from app import Config
+
 __author__ = 'eMaM'
 
 from time import sleep
 
 import sys
 
-from app import Config
+import app.Config
 from app.Utils import formateDate, startDate, endDate
 
 import splunklib.client as client
+import  splunklib.binding as binding
 
 
 class SplunkSearch():
     def __init__(self):
+
         self.service = client.connect(
-            host=Config.DEVELOPMENT_CONF['splunk']['host'],
-            port=Config.DEVELOPMENT_CONF['splunk']['port'],
-            username=Config.DEVELOPMENT_CONF['splunk']['username'],
-            password=Config.DEVELOPMENT_CONF['splunk']['password'])
+                    host=Config.DEVELOPMENT_CONF['splunk']['host'],
+                    port=Config.DEVELOPMENT_CONF['splunk']['port'],
+                    username=Config.DEVELOPMENT_CONF['splunk']['username'],
+                    password=Config.DEVELOPMENT_CONF['splunk']['password'])
+
 
     def search(self):
         savedsearches = self.service.saved_searches[Config.DEVELOPMENT_CONF['splunk']['Data_For_Download_Analytics']]
@@ -49,7 +54,8 @@ class SplunkSearch():
             sleep(2)
 
         jobresults = job.results()
-
+        print(jobresults)
         #TODO make result to csv
 
 
+SplunkSearch().search()

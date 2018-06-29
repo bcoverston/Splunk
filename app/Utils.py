@@ -20,4 +20,3 @@ def formateDate(date, pattern):
     return date.strftime(pattern)
 
 
-print(endDate())

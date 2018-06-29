@@ -1,6 +1,5 @@
 import sys
 
-from builtins import print
 
 __author__ = 'eMaM'
 
