@@ -4,8 +4,11 @@ from time import sleep
 
 import sys
 
-from app import Config
-from app.Utils import formateDate, startDate, endDate
+#from app import Config
+#from app.Utils import formateDate, startDate, endDate
+
+import Config
+from Utils import formateDate, startDate, endDate
 
 import splunklib.client as client
 
