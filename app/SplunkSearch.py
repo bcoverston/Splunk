@@ -6,11 +6,9 @@ from time import sleep
 
 import sys
 
-import app.Config
 from app.Utils import formateDate, startDate, endDate
 
 import splunklib.client as client
-import  splunklib.binding as binding
 
 
 class SplunkSearch():
@@ -20,22 +18,26 @@ class SplunkSearch():
                     host=Config.DEVELOPMENT_CONF['splunk']['host'],
                     port=Config.DEVELOPMENT_CONF['splunk']['port'],
                     username=Config.DEVELOPMENT_CONF['splunk']['username'],
-                    password=Config.DEVELOPMENT_CONF['splunk']['password'])
+                    password=Config.DEVELOPMENT_CONF['splunk']['password'],
+                    scheme=Config.DEVELOPMENT_CONF['splunk']['scheme'])
 
 
     def search(self):
-        savedsearches = self.service.saved_searches[Config.DEVELOPMENT_CONF['splunk']['Data_For_Download_Analytics']]
+
+
+        savedsearches = self.service.saved_searches[Config.DEVELOPMENT_CONF['splunk']['report']]
         kwargs = {
-            "earliest_time": formateDate(startDate(), Config.DEVELOPMENT_CONF['misc']['splunk_search_date_format']),
-            "latest_time": formateDate(endDate(), Config.DEVELOPMENT_CONF['misc']['splunk_search_date_format'])
+            "auto_summarize.dispatch.earliest_time": formateDate(startDate(), Config.DEVELOPMENT_CONF['misc']['splunk_search_date_format']),
+            "auto_summarize.dispatch.latest_time": formateDate(endDate(), Config.DEVELOPMENT_CONF['misc']['splunk_search_date_format'])
         }
+
 
         savedsearches.update(**kwargs).refresh()
 
         # Run the saved search
         job = savedsearches.dispatch()
 
-        sleep(500)
+        sleep(10)
 
         while True:
             job.refresh()
@@ -53,9 +55,15 @@ class SplunkSearch():
                 break
             sleep(2)
 
-        jobresults = job.results()
-        print(jobresults)
-        #TODO make result to csv
+
+        search_results = job.results(**{"output_mode": "csv"})
+
+        f = open("/Users/mac/NewFile.csv", 'w')
+        f.write(search_results.read())
+
 
 
 SplunkSearch().search()
+
+
+# curl -k https://prd-p-5p7k7lg9772d.cloud.splunk.com:8089/services/auth/login --data-urlencode username=emam151987 --data-urlencode password=Qazxsw#1

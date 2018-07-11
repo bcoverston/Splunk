@@ -1,10 +1,23 @@
 __author__ = 'eMaM'
 
 DEVELOPMENT_CONF = {
+    # 'splunk': {
+    #     'username': 'admin',
+    #     'password': 'qazxsw@1',
+    #     'host':'127.0.0.1',
+    #     'port': 8089,
+    #     'scheme': 'https',
+    #     'fields': ['_time', 'd_time', 'clientip', 'file', 'status', 'uri', 'user'],
+    #     'backup': {
+    #         'path': '~/splunk-bk/'
+    #     },
+    #     'report':'Data_For_Download_Analytics'
+    # },
+
     'splunk': {
-        'username': '5555',
-        'password': 'Qazxsw@1',
-        'host':'prd-p-5p7k7lg9772d.cloud.splunk.com',
+        'username': 'jega',
+        'password': 'C@ssandra94010',
+        'host':'datastax.splunkcloud.com',
         'port': 8089,
         'scheme': 'https',
         'fields': ['_time', 'd_time', 'clientip', 'file', 'status', 'uri', 'user'],
