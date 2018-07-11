@@ -58,7 +58,7 @@ class SplunkSearch():
 
         search_results = job.results(**{"output_mode": "csv"})
 
-        f = open("/Users/mac/NewFile.csv", 'w')
+        f = open("~/NewFile.csv", 'w')
         f.write(search_results.read())
 
 
