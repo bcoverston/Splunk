@@ -24,7 +24,11 @@ DEVELOPMENT_CONF = {
         'backup': {
             'path': '~/splunk-bk/'
         },
-        'report':'Data_For_Download_Analytics'
+        'report':'Data_For_Download_Analytics',
+        'download':{
+            'daily_path':'',
+            'full_path':''
+        },
     },
 
     'salesforce': {
@@ -37,6 +41,8 @@ DEVELOPMENT_CONF = {
         'download_path':'~/sf-download/'
     },
     'misc':{
-        'splunk_search_date_format' : "%Y-%m-%dT%H:%M:%S.%f"
+        'splunk_search_date_format' : "%Y-%m-%dT%H:%M:%S.%f",
+        'splunk_export_format' : "%Y%m%d",
+
     }
 }
