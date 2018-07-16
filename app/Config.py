@@ -33,10 +33,10 @@ DEVELOPMENT_CONF = {
 
     'salesforce': {
         'username': 'integration@datastax.com.neworg',
-        'password': 'datastax2',
-        'token': 'UXgOITuTQiwePYBwnnWo5QEpp',
+        'password': 'DatastaxAugust2016',
+        'token': 'IWmfL7jMw6XzWOLbuR8efn2m',
         'backup': {
-            'path': '~/sf-bk/'
+            'path': '/Users/mac/'
         },
         'download_path':'~/sf-download/'
     },

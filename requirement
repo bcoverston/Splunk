@@ -1,3 +1,4 @@
 splunk-sdk==1.6.2
 simple-salesforce
 pytz
+pathlib
