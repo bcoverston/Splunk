@@ -28,7 +28,7 @@ class SalesforceIntergration():
             fieldNames = [field['name'] for field in salesforce_object.describe()['fields']]
             try:
                 results = self.sf.query_all(
-                    "SELECT {} FROM {} WHERE CreatedDate={}".format(','.join(fieldNames), each, 'YESTERDAY'))['records']
+                    "SELECT {} FROM {} ".format(','.join(fieldNames), each))['records']
             except SalesforceMalformedRequest as e:
                 continue
 
