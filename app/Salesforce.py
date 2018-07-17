@@ -28,7 +28,7 @@ class SalesforceIntergration():
             fieldNames = [field['name'] for field in salesforce_object.describe()['fields']]
             try:
                 results = self.sf.query_all(
-                    "SELECT {} FROM {} ".format(','.join(fieldNames), each))['records']
+                    "SELECT {} FROM {} WHERE CreatedDate={}".format(','.join(fieldNames), each,'LAST_MONTH'))['records']
             except SalesforceMalformedRequest as e:
                 continue
 
