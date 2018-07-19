@@ -31,7 +31,7 @@ class SalesforceIntergration():
                 self.retry -= 1
                 self.connect()
             else:
-                raise SalesforceAuthenticationFailed("500",'Can`t connect to saleforce')
+                raise SalesforceAuthenticationFailed("500", 'Can`t connect to saleforce')
 
         return sf
 
@@ -39,11 +39,13 @@ class SalesforceIntergration():
         tables = ['Lead', 'Contact', 'Account']
         # tables = ['lead']
         for each in tables:
-            salesforce_object = self.sf.__getattr__(each)
-            fieldNames = [field['name'] for field in salesforce_object.describe()['fields']]
+            # salesforce_object = self.sf.__getattr__(each)
+            # fieldNames = [field['name'] for field in salesforce_object.describe()['fields']]
+            fieldNames = [field for field in (Config.DEVELOPMENT_CONF['salesforce']['fields'][each]).split('|')]
             try:
                 results = self.sf.query_all(
-                    "SELECT {} FROM {} WHERE CreatedDate={}".format(','.join(fieldNames), each, 'LAST_MONTH'))['records']
+                    "SELECT {} FROM {} WHERE CreatedDate={}".format(', '.join(fieldNames), each, 'LAST_MONTH'))[
+                    'records']
             except SalesforceMalformedRequest as e:
                 continue
 

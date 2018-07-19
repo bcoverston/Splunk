@@ -38,7 +38,12 @@ DEVELOPMENT_CONF = {
         'backup': {
             'path': '/Users/mac/'
         },
-        'download_path':'~/sf-download/'
+        'download_path':'~/sf-download/',
+        'fields':{
+            'Account':'BillingLongitude|Revenue_Range__c|ParentId|Sales_Region__c|Website|Type|BillingCountryCode|DataStax_Pursuit_List__c|LastModifiedDate|type|BillingLatitude|Account_Subtype__c|BillingStateCode|Name|NumberOfEmployees|BillingCity|BillingPostalCode|Id|Global_2000__c|Industry',
+            'Lead':'Email|LastModifiedDate|ConvertedAccountId|Existing_Account__c|Id|Type__c',
+            'Contact':'Name|Email|AccountId|Id|type'
+        }
     },
     'misc':{
         'splunk_search_date_format' : "%Y-%m-%dT%H:%M:%S.%f",
