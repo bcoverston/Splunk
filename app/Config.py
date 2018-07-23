@@ -40,9 +40,9 @@ DEVELOPMENT_CONF = {
         },
         'download_path':'~/sf-download/',
         'fields':{
-            'Account':'BillingLongitude|Revenue_Range__c|ParentId|Sales_Region__c|Website|Type|BillingCountryCode|DataStax_Pursuit_List__c|LastModifiedDate|type|BillingLatitude|Account_Subtype__c|BillingStateCode|Name|NumberOfEmployees|BillingCity|BillingPostalCode|Id|Global_2000__c|Industry',
-            'Lead':'Email|LastModifiedDate|ConvertedAccountId|Existing_Account__c|Id|Type__c',
-            'Contact':'Name|Email|AccountId|Id|type'
+            'Account':'BillingLongitude, Revenue_Range__c, ParentId, Sales_Region__c, Website, Type, BillingCountryCode, LastModifiedDate, BillingLatitude, Account_Subtype__c, BillingStateCode, Name, NumberOfEmployees, BillingCity, BillingPostalCode, Id, Global_2000__c, Industry',
+            'Lead':'Email, LastModifiedDate, ConvertedAccountId, Existing_Account__c, Id, Lead_Source_Type__c',
+            'Contact':'Name, Email, AccountId, Id, mkto2__Original_Source_Type__c'
         }
     },
     'misc':{
